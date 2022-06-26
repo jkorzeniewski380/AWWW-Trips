@@ -19,7 +19,7 @@ Libraries used on Frontend in the project:
 - [React-router](https://reactrouter.com/) - routing
 - [Ramda](https://ramdajs.com/) - functional programming library
 - [ImmutableJS](https://immutable-js.com/) - great immutable data structures, used to ensure immutability of redux state
-- [edux-observable](https://redux-observable.js.org/)/[RxJS](https://rxjs.dev/) - reactive actions handling
+- [Redux-observable](https://redux-observable.js.org/)/[RxJS](https://rxjs.dev/) - reactive actions handling
 - [Redux](https://redux.js.org/)/[React-redux](https://react-redux.js.org/)/[Reselect](https://github.com/reduxjs/reselect) - global state
 - [chakra-ui](https://chakra-ui.com/) - theme & CSS in JS functionality
 
