@@ -1,17 +1,7 @@
 import React from "react";
-import { Link as RouterLink } from "react-router-dom";
-import { Flex, Heading, Text, Link } from "@chakra-ui/react";
+import { Flex, Heading, Text } from "@chakra-ui/react";
 import { getBookRoute } from "../../../routes";
-
-export const AsideLink = (props) => (
-    <Link
-        as={RouterLink}
-        _after={{
-            content: `">>"`
-        }}
-        {...props}
-    />
-);
+import { AsideLink } from "../../../components/AsideLink";
 
 export const Promo = ({ name, date, id }) => (
     <Flex

@@ -1,6 +1,6 @@
 import React from "react";
 import { Flex, Image, Heading, Text } from "@chakra-ui/react";
-import { TripLink } from "./trips";
+import { TripLink } from "./TripLink";
 import { getTripRoute, getBookRoute } from "../../../routes";
 
 export const Trip = ({

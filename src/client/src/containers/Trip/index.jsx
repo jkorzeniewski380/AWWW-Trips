@@ -1,6 +1,5 @@
-import { Box, Flex, Heading, Image, Link, ListItem, OrderedList, Text, UnorderedList } from '@chakra-ui/react';
+import { Box, Flex, Heading, Image, ListItem, OrderedList } from '@chakra-ui/react';
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { isNil } from "ramda";
@@ -8,61 +7,10 @@ import { tripSelector, tripsLoadedSelector } from '../../redux/trips/selectors';
 import { getBookRoute } from '../../routes';
 import { useEffect } from 'react';
 import { fetchTripRequest } from '../../redux/trips/actions';
-
-export const TripInfoListWrapper = ({ children, ...props }) => (
-    <UnorderedList listStyleType="none" my="16px" {...props}>
-        {children}
-    </UnorderedList>
-);
-
-export const TripInfoListItem = ({ children, ...props }) => (
-    <ListItem
-        _before={{
-            pr: "5px",
-            content: `"-"`
-        }}
-        sx={{
-            textIndent: "-5px"
-        }}
-        {...props}
-    >
-        {children}
-    </ListItem>
-);
-
-export const TripNavigationLink = ({ children, ...props }) => (
-    <Link
-        as={RouterLink}
-        bgColor="bisque"
-        border="solid 1px black"
-        p="3px"
-        _hover={{
-            bgColor: 'rgba(0,0,0,0.2)'
-        }}
-        _first={{
-            _before: {
-                content: `"< "`
-            }
-        }}
-        _last={{
-            _after: {
-                content: `" >"`
-            }
-        }}
-        {...props}
-    >
-        {children}
-    </Link>
-);
-
-export const TripDescriptionText = ({ children, ...props }) => (
-    <Text
-        my="16px"
-        {...props}
-    >
-        {children}
-    </Text>
-)
+import { TripInfoListWrapper } from './components/TripInfoListWrapper';
+import { TripInfoListItem } from './components/TripInfoListItem';
+import { TripNavigationLink } from './components/TripNavigationLink';
+import { TripDescriptionText } from './components/TripDescriptionText';
 
 export const Trip = () => {
     const { id } = useParams();

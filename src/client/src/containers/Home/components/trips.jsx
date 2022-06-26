@@ -1,31 +1,9 @@
-import { Flex, Link, Spinner, Text, Heading } from "@chakra-ui/react";
+import { Flex, Spinner, Text, Heading } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
-import { Link as RouterLink } from "react-router-dom";
 import React from "react";
 import { tripsLoadedSelector, tripsLoadErrorSelector, tripsSelector } from "../../../redux/trips/selectors";
-import { Trip } from "./trip";
-
-export const TripLink = ({ children, ...props }) => (
-    <Link
-        as={RouterLink}
-        {...props}
-    >
-        {children}
-    </Link>
-);
-
-const TripsWrapper = ({ children, ...props }) => (
-    <Flex
-        direction="column"
-        h="100%"
-        minW={{ base: "300px", sm: "570px" }}
-        maxW={{ base: "300px", sm: "570px" }}
-        mr={{ base: 0, md: "20px" }}
-        {...props}
-    >
-        {children}
-    </Flex>
-);
+import { Trip } from "./Trip";
+import { TripsWrapper } from "./TripsWrapper";
 
 export const Trips = (props) => {
     const trips = useSelector(tripsSelector);

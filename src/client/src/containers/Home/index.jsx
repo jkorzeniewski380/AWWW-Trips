@@ -2,21 +2,22 @@ import React, { useEffect } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { Box, Flex, Heading, Link, Text } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
-import { Promo } from "./components/promo";
+import { Promo } from "./components/Promo";
 import { advices, promos } from "./const";
-import { Trips } from "./components/trips";
+import { Trips } from "./components/Trips";
 import { fetchTripsRequest } from "../../redux/trips/actions";
-import { tripsSelector } from "../../redux/trips/selectors";
+import { tripsLoadingStateSelector } from "../../redux/trips/selectors";
+import { LOADING_STATES } from "../../redux/trips/const";
 
 export const Home = () => {
-    const trips = useSelector(tripsSelector);
+    const tripsLoadingState = useSelector(tripsLoadingStateSelector);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (trips.size === 0) {
+        if (tripsLoadingState === LOADING_STATES.IDLE) {
             dispatch(fetchTripsRequest());
         }
-    }, [dispatch, trips]);
+    }, [dispatch, tripsLoadingState]);
 
     return (
         <>

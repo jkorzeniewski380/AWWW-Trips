@@ -1,6 +1,5 @@
 import { 
-    Flex, Heading, Image, Table,
-    Input, Thead, Tr, Th, Tbody, Td,
+    Flex, Heading, Image, Input,
     VStack, FormControl, FormLabel,
     FormErrorMessage,
     Button,
@@ -17,6 +16,7 @@ import { bookTripRequest, fetchTripRequest } from "../../redux/trips/actions";
 import { fieldNameToLabel, initialValues, formValidationSchema } from "./const";
 import { STATUS } from "../../redux/trips/const";
 import { getTripRoute } from "../../routes";
+import { CostsTable } from "../../components/CostsTable/";
 
 const BookTripInput = (props) => (
     <Input
@@ -28,29 +28,6 @@ const BookTripInput = (props) => (
         padding="10px"
         {...props}
     />
-);
-
-const CostsTr = ({ children, ...props }) => (
-    <Tr
-        _last={{
-            Td: {
-                fontWeight: "bold"
-            }
-        }}
-        {...props}
-    >
-        {children}
-    </Tr>
-);
-
-const CostsTd = ({ children, ...props }) => (
-    <Td
-        p="3px"
-        borderTop="solid 2px #0A0099"
-        {...props}
-    >
-        {children}
-    </Td>
 );
 
 export const Book = () => {
@@ -110,38 +87,7 @@ export const Book = () => {
                     Pozostało miejsc: {availableSpots}
                 </Heading>
             </Link>
-            <Table
-                variant="simple"
-            >
-                <Thead>
-                    <CostsTr>
-                        <Th p="5px" scope="col">Nazwa</Th>
-                        <Th p="5px" scope="col" isNumeric>Koszt</Th>
-                    </CostsTr>
-                </Thead>
-                <Tbody>
-                    <CostsTr>
-                        <CostsTd>Ubezpieczenie</CostsTd>
-                        <CostsTd isNumeric>500 PLN</CostsTd>
-                    </CostsTr>
-                    <CostsTr>
-                        <CostsTd>Bilety</CostsTd>
-                        <CostsTd isNumeric>1000 PLN</CostsTd>
-                    </CostsTr>
-                    <CostsTr>
-                        <CostsTd>Wyżywienie</CostsTd>
-                        <CostsTd isNumeric>1000 PLN</CostsTd>
-                    </CostsTr>
-                    <CostsTr>
-                        <CostsTd>Zakwaterowanie</CostsTd>
-                        <CostsTd isNumeric>1000 PLN</CostsTd>
-                    </CostsTr>
-                    <CostsTr>
-                        <CostsTd>Razem od osoby</CostsTd>
-                        <CostsTd isNumeric>{price} PLN</CostsTd>
-                    </CostsTr>
-                </Tbody>
-            </Table>
+            <CostsTable price={price} />
             <Heading as="h2">Formularz rezerwacyjny</Heading>
             <Formik
                 initialValues={initialValues}

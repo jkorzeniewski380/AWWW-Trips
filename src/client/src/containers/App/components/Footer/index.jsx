@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flex, Text } from '@chakra-ui/react';
 import { mainRoute } from '../../../../routes';
-import { HeaderLink } from '../Header';
+import { HeaderLink } from '../../../../components/HeaderLink';
 
 export const Footer = () => (
     <Flex
